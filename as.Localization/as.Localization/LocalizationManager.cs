@@ -53,6 +53,7 @@ namespace @as.Localization
         /// <returns></returns>
         public string GetResource(string resourceName)
         {
+            Load();//First Get Request And Load
             var resource = Repostory.Where(x => x.name == resourceName).FirstOrDefault();
             string result = resource == null ? resourceName : resource.value;
             return result;
@@ -75,8 +76,7 @@ namespace @as.Localization
         /// <param name="languageId"></param>
         public void ChangeLang(string languageId)
         {
-            this.languageId = languageId;
-            Load();
+            this.languageId = languageId;            
         }
 
         public void SetResourceType(ResourceType resourceType)
