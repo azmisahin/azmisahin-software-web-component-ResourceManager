@@ -19,11 +19,20 @@ namespace @as.Localization
         private ResourceType resourceType { get; set; }
         #endregion
 
+        #region Helper
+        public static T ParseEnum<T>(string value)
+        {
+            return (T)Enum.Parse(typeof(T), value, true);
+        }
+        #endregion
+
         #region ctor
         public LocalizationManager()
         {
             languageId = getAppKey("Localization.LanguageId");
             resourceFolder = getAppKey("Localization.ResourceFolder");
+            var resourceTypeString = getAppKey("Localization.ResourceType");
+            resourceType = ParseEnum<ResourceType>(resourceTypeString);
             Load();
         }
         /// <summary>
