@@ -1,6 +1,27 @@
 ﻿namespace @as.Localization
 {
     /// <summary>
+    /// Resource Type
+    /// </summary>
+    public enum ResourceType
+    {        
+        /// <summary>
+        /// inline Code
+        /// </summary>
+        Code = 0,
+        
+        /// <summary>
+        /// Xml File
+        /// </summary>
+        
+        XmlFile,
+        /// <summary>
+        /// Database
+        /// </summary>
+        Database
+    }
+
+    /// <summary>
     /// Resource Manager Interface
     /// </summary>
     public interface iResourceManager
@@ -10,7 +31,15 @@
         /// </summary>
         /// <param name="languageId"></param>
         /// <returns></returns>
-        iResourceManager SetLang(int languageId);
+        iResourceManager SetLang(string languageId);
+
+        /// <summary>
+        /// From Resource Type
+        /// Default XmlFile = 1
+        /// </summary>
+        /// <param name="resourceType"></param>
+        /// <returns></returns>
+        iResourceManager From(ResourceType resourceType);
 
         /// <summary>
         /// Get Resource

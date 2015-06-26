@@ -30,7 +30,7 @@
         {
             private string valueField;
             private string commentField;
-            private byte languageIdField;
+            private string languageIdField;
             private string nameField;
 
             /// <summary>
@@ -55,7 +55,7 @@
             /// Language Id
             /// </summary>
             [System.Xml.Serialization.XmlAttributeAttribute()]
-            public byte languageId
+            public string languageId
             {
                 get { return this.languageIdField; }
                 set { this.languageIdField = value; }

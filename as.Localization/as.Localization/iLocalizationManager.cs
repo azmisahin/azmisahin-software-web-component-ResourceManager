@@ -13,7 +13,7 @@ namespace @as.Localization
         /// </summary>
         /// <param name="languageId"></param>
         /// <returns></returns>
-        List<Models.Resource.LocaleStringResource> GetAllResources(int languageId);
+        List<Models.Resource.LocaleStringResource> GetAllResources(string languageId);
 
         /// <summary>
         /// Get Resource Name
@@ -28,12 +28,19 @@ namespace @as.Localization
         /// <param name="resourceName"></param>
         /// <param name="languageId"></param>
         /// <returns></returns>
-        string GetResource(string resourceName, int languageId);
+        string GetResource(string resourceName, string languageId);
 
         /// <summary>
         /// Chaning Default Language Ad Chan
         /// </summary>
         /// <param name="languageId"></param>
-        void ChangeLang(int languageId);
+        void ChangeLang(string languageId);
+
+        /// <summary>
+        /// Set Resource Type
+        /// Default XmlFile = 1
+        /// </summary>
+        /// <param name="resourceType"></param>
+        void SetResourceType(ResourceType resourceType);
     }
 }

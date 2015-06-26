@@ -25,11 +25,23 @@
         /// </summary>
         /// <param name="languageId"></param>
         /// <returns></returns>
-        public iResourceManager SetLang(int languageId)
+        public iResourceManager SetLang(string languageId)
         {
             instance.ChangeLang(languageId);
             return this;
         }
+
+        /// <summary>
+        /// From Resource Type
+        /// </summary>
+        /// <param name="resourceType"></param>
+        /// <returns></returns>
+        public iResourceManager From(ResourceType resourceType)
+        {
+            instance.SetResourceType(resourceType);
+            return this;
+        }
+        
 
         /// <summary>
         /// Get Resource

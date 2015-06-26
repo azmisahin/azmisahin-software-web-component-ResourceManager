@@ -14,15 +14,16 @@ namespace @as.Localization
     {
         #region Field
         private List<Models.Resource.LocaleStringResource> Repostory { get; set; }
-        private int languageId { get; set; }
-        private string resourceFile { get; set; }
+        private string languageId { get; set; }
+        private string resourceFolder { get; set; }
+        private ResourceType resourceType { get; set; }
         #endregion
 
         #region ctor
         public LocalizationManager()
         {
-            languageId = Convert.ToInt32(getAppKey("Localization.LanguageId"));
-            resourceFile = getAppKey("Localization.ResourceFile");
+            languageId = getAppKey("Localization.LanguageId");
+            resourceFolder = getAppKey("Localization.ResourceFolder");
             Load();
         }
         /// <summary>
@@ -40,7 +41,7 @@ namespace @as.Localization
         /// </summary>
         /// <param name="languageId"></param>
         /// <returns></returns>
-        public List<Models.Resource.LocaleStringResource> GetAllResources(int languageId)
+        public List<Models.Resource.LocaleStringResource> GetAllResources(string languageId)
         {
             return Repostory;
         }
@@ -63,7 +64,7 @@ namespace @as.Localization
         /// <param name="resourceName"></param>
         /// <param name="languageId"></param>
         /// <returns></returns>
-        public string GetResource(string resourceName, int languageId)
+        public string GetResource(string resourceName, string languageId)
         {
             return Repostory.Where(x => x.name == resourceName & x.languageId == languageId).FirstOrDefault().value;
         }
@@ -72,10 +73,15 @@ namespace @as.Localization
         /// Cgange Language
         /// </summary>
         /// <param name="languageId"></param>
-        public void ChangeLang(int languageId)
+        public void ChangeLang(string languageId)
         {
             this.languageId = languageId;
             Load();
+        }
+
+        public void SetResourceType(ResourceType resourceType)
+        {
+            this.resourceType = resourceType;
         }
         #endregion
 
@@ -93,18 +99,31 @@ namespace @as.Localization
         #endregion
 
         #region Function
-        
+
         /// <summary>
         /// get Data By Id
         /// </summary>
         /// <param name="languageId"></param>
         /// <returns></returns>
-        private List<Models.Resource.LocaleStringResource> getData(int languageId)
+        private List<Models.Resource.LocaleStringResource> getData(string languageId)
         {
             Repostory = new List<Models.Resource.LocaleStringResource>();
-            Repostory = getDataFromCode();
-            //Repostory = getDataFromXml();
-            //Repostory = getDataFromDatabase();
+
+            switch (this.resourceType)
+            {
+                case ResourceType.Code:
+                    Repostory = getDataFromCode();
+                    break;
+                case ResourceType.XmlFile:
+                    Repostory = getDataFromXml(languageId);
+                    break;
+                case ResourceType.Database:
+                    Repostory = getDataFromDatabase();
+                    break;
+                default:
+                    Repostory = getDataFromXml(languageId);
+                    break;
+            }
 
             return Repostory.Where(x => x.languageId == languageId).ToList();
         }
@@ -115,20 +134,12 @@ namespace @as.Localization
         /// <returns></returns>
         private List<Models.Resource.LocaleStringResource> getDataFromCode()
         {
-            #region English Resource
-            #region Log
-            Repostory.Add(new Models.Resource.LocaleStringResource { languageId = 0, name = "Data.Log", value = "Log" });
-            Repostory.Add(new Models.Resource.LocaleStringResource { languageId = 0, name = "Data.Log.id", value = "Log Id" });
-            Repostory.Add(new Models.Resource.LocaleStringResource { languageId = 0, name = "Data.Log.info", value = "Log Information" });
-            #endregion
+            #region Base
+            Repostory.Add(new Models.Resource.LocaleStringResource { languageId = "en", name = "Test.Data", value = "Test Base Language" });
             #endregion
 
-            #region Turkish Resource
-            #region Log
-            Repostory.Add(new Models.Resource.LocaleStringResource { languageId = 1, name = "Data.Log", value = "Log" });
-            Repostory.Add(new Models.Resource.LocaleStringResource { languageId = 1, name = "Data.Log.id", value = "Log Id" });
-            Repostory.Add(new Models.Resource.LocaleStringResource { languageId = 1, name = "Data.Log.info", value = "Log Bilgisi" });
-            #endregion
+            #region Sample
+            Repostory.Add(new Models.Resource.LocaleStringResource { languageId = "tr", name = "Test.Data", value = "Örnek Bir Test Değeri" });
             #endregion
 
             return Repostory;
@@ -138,15 +149,21 @@ namespace @as.Localization
         /// get Data From Xml
         /// </summary>
         /// <returns></returns>
-        private List<Models.Resource.LocaleStringResource> getDataFromXml()
+        private List<Models.Resource.LocaleStringResource> getDataFromXml(string language)
         {
             List<Models.Resource.LocaleStringResource> result = new List<Models.Resource.LocaleStringResource>();
             string BaseDirectory = AppDomain.CurrentDomain.BaseDirectory;
-            string FullPath = BaseDirectory + resourceFile;
+            string FullPath = BaseDirectory + resourceFolder + "Resource." + languageId + ".resx";//Resource.resx
             if (File.Exists(FullPath))
+            {
                 result = new StreamManager<Models.Resource.root>().Deserialize(FullPath).data.ToList();
+                result = (from item in result
+                          select new Models.Resource.LocaleStringResource { languageId = language, comment = item.comment, name = item.name, value = item.value })
+                         .ToList();
+            }
             return result;
         }
+
 
         /// <summary>
         /// Database Base
@@ -156,11 +173,11 @@ namespace @as.Localization
         {
             List<Models.Resource.LocaleStringResource> result = new List<Models.Resource.LocaleStringResource>();
             string BaseDirectory = AppDomain.CurrentDomain.BaseDirectory;
-            string FullPath = BaseDirectory + resourceFile;
+            string FullPath = BaseDirectory + resourceFolder;
             if (File.Exists(FullPath))
                 result = new StreamManager<Models.Resource.root>().Deserialize(FullPath).data.ToList();
             return result;
-        }    
+        }
         #endregion
     }
 }

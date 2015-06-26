@@ -1,4 +1,6 @@
-﻿using System.Reflection;
+﻿/// https://github.com/azmisahin/Localization
+/// 
+using System.Reflection;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 [assembly: AssemblyTitle("as.Localization")]

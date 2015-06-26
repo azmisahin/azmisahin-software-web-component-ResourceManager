@@ -7,17 +7,45 @@ namespace @as.Localization.Test
     public class ResourceTest
     {
         [TestMethod]
+        public void ResourceManagerNotingTest()
+        {
+            var key = "Nothing Content";
+            var lang = "en";
+            var result = Resource
+                .Manager
+                .SetLang(lang)
+                .From(ResourceType.XmlFile)
+                .Get(key);
+
+            Console.WriteLine(string.Format("Lang : {0}\n Key : {1}\n Result : {2}", lang, key, result));
+        }
+
+        [TestMethod]
         public void ResourceManagerTest()
         {
-            var resultLangBase = Resource
+            var key = "Test.Data";
+            var lang = "en";
+            var result = Resource
                 .Manager
-                .SetLang(0)
-                .Get("Data.Log.info");
-            var resultLangOne = Resource
+                .SetLang(lang)
+                .From(ResourceType.XmlFile)
+                .Get(key);
+
+            Console.WriteLine(string.Format("Lang : {0}\n Key : {1}\n Result : {2}", lang, key, result));
+        }
+
+        [TestMethod]
+        public void ResourceManagerTestSample()
+        {
+            var key = "Test.Data";
+            var lang = "tr";
+            var result = Resource
                 .Manager
-                .SetLang(1)
-                .Get("Data.Log.info");
-            Console.WriteLine(string.Format("Base : {0}  One:{1}", resultLangBase,resultLangOne));
+                .SetLang(lang)
+                .From(ResourceType.XmlFile)
+                .Get(key);
+
+            Console.WriteLine(string.Format("Lang : {0}\n Key : {1}\n  Result : {2}", lang, key, result));
         }
     }
 }
