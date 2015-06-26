@@ -21,7 +21,7 @@ namespace @as.Localization
         /// <returns></returns>
         public T Deserialize(string filename)
         {
-            FileStream streamReader = new FileStream(filename, FileMode.Open);
+            FileStream streamReader = new FileStream(filename, FileMode.Open, FileAccess.Read, FileShare.Read);
             return getDeserialize(streamReader);
         }
 
