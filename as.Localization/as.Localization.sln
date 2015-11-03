@@ -1,11 +1,22 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.22310.1
+# Visual Studio 2013
+VisualStudioVersion = 12.0.40629.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "as.Localization", "as.Localization\as.Localization.csproj", "{29E4F3D7-225F-4A6C-AA09-E8869C7F1D45}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "as.Localization.Test", "as.Localization.Test\as.Localization.Test.csproj", "{BF6DCC8E-A842-4D0C-A448-63629A30C70C}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Build", "Build", "{8B904411-CAD0-4C8B-AAFA-72EE52F8103D}"
+	ProjectSection(SolutionItems) = preProject
+		..\Build\@as.Localization.dll.nuspec = ..\Build\@as.Localization.dll.nuspec
+		..\Build\build.nugate.pack.cmd = ..\Build\build.nugate.pack.cmd
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tools", "Tools", "{DFAD3541-4EA0-48C4-BF4C-6FFFCAB696CB}"
+	ProjectSection(SolutionItems) = preProject
+		..\Tools\nuget.exe = ..\Tools\nuget.exe
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
