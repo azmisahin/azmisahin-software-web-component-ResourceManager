@@ -56,5 +56,12 @@
         /// <param name="primaryKey"></param>
         /// <returns></returns>
         string GetByModel(string tableName, string name, int primaryKey);
+
+        /// <summary>
+        /// Set Resource
+        /// </summary>
+        /// <param name="model"></param>
+        /// <returns></returns>
+        @as.Localization.Models.Resource.LocaleStringResource SetModel(@as.Localization.Models.Resource.LocaleStringResource model);
     }
 }

@@ -13,7 +13,7 @@ namespace @as.Localization
     public class LocalizationManager : iLocalizationManager
     {
         #region Field
-        private List<Models.Resource.LocaleStringResource> Repostory { get; set; }
+        internal List<Models.Resource.LocaleStringResource> Repostory { get; set; }
         private string languageId { get; set; }
         private string resourceFolder { get; set; }
         private ResourceType resourceType { get; set; }

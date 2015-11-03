@@ -41,8 +41,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="iLocalizationManager.cs" />
+    <Compile Include="iLocalizationSetManager.cs" />
     <Compile Include="iResourceManager.cs" />
     <Compile Include="LocalizationManager.cs" />
+    <Compile Include="LocalizationSetManager.cs" />
     <Compile Include="Models\Resource.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Resource.cs" />

@@ -65,5 +65,12 @@
             return name;
         }
         #endregion
+
+        #region Set
+        public Models.Resource.LocaleStringResource SetModel(Models.Resource.LocaleStringResource model)
+        {
+            return new LocalizationSetManager().SetModel(model);
+        } 
+        #endregion
     }
 }
