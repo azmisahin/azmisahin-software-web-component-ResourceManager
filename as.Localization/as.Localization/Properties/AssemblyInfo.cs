@@ -4,9 +4,9 @@ using System.Reflection;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 [assembly: AssemblyTitle("as.Localization")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyDescription("Localization Resource Manager")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
+[assembly: AssemblyCompany("azmisahin.com")]
 [assembly: AssemblyProduct("as.Localization")]
 [assembly: AssemblyCopyright("bilgi@azmisahin.com Copyright ©  2016")]
 [assembly: AssemblyTrademark("")]
