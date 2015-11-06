@@ -12,7 +12,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tools", "Tools", "{DFAD3541
 		..\Tools\nuget.exe = ..\Tools\nuget.exe
 	EndProjectSection
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Build", "Build", "{E15775C1-9033-4B06-964C-DB7164319072}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Release", "Release", "{E15775C1-9033-4B06-964C-DB7164319072}"
 	ProjectSection(SolutionItems) = preProject
 		..\Build\as.Localization.nuspec = ..\Build\as.Localization.nuspec
 		..\Build\build.nuget.cmd = ..\Build\build.nuget.cmd
