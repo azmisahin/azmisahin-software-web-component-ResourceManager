@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>as.Localization</id>
+    <version>1.0.0.5</version>
+    <authors>Azmi SAHIN</authors>
+    <owners>Azmi SAHIN</owners>
+    <licenseUrl>https://github.com/azmisahin/Localization</licenseUrl>
+    <projectUrl>https://github.com/azmisahin/Localization</projectUrl>
+    <iconUrl>https://azmisahin.github.io/favicon.png</iconUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Localization Resource Manager</description>
+    <releaseNotes>Set Multiple Language Repostory.</releaseNotes>
+    <copyright>Copyright 2016 - bilgi@azmisahin.com</copyright>
+    <tags>Localization Resource Lang En Tr azmisahin</tags>   
+  </metadata>
+</package>

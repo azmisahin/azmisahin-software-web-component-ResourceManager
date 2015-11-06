@@ -9,14 +9,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "as.Localization.Test", "as.
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tools", "Tools", "{DFAD3541-4EA0-48C4-BF4C-6FFFCAB696CB}"
 	ProjectSection(SolutionItems) = preProject
+		..\Tools\as.Localization.nuspec = ..\Tools\as.Localization.nuspec
+		..\Tools\build.nuget.cmd = ..\Tools\build.nuget.cmd
+		..\Tools\build.release.cmd = ..\Tools\build.release.cmd
 		..\Tools\nuget.exe = ..\Tools\nuget.exe
-	EndProjectSection
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Release", "Release", "{E15775C1-9033-4B06-964C-DB7164319072}"
-	ProjectSection(SolutionItems) = preProject
-		..\Build\as.Localization.nuspec = ..\Build\as.Localization.nuspec
-		..\Build\build.nuget.cmd = ..\Build\build.nuget.cmd
-		..\Build\build.release.cmd = ..\Build\build.release.cmd
 	EndProjectSection
 EndProject
 Global
